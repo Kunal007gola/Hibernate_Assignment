@@ -21,7 +21,8 @@ public class Author {
 	private String name;
 	private int age;
 	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy="author")
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="author_id")
 	private Set<Book> book=new HashSet<>();
 	
 	public Set<Book> getBook() {
