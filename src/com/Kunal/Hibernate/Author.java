@@ -21,16 +21,7 @@ public class Author {
 	private String name;
 	private int age;
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinColumn(name="author_id")
-	private Set<Book> book=new HashSet<>();
 	
-	public Set<Book> getBook() {
-		return book;
-	}
-	public void setBook(Set<Book> book) {
-		this.book = book;
-	}
 	public int getId() {
 		return id;
 	}
