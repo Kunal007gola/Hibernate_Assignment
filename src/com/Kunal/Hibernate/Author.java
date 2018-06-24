@@ -1,9 +1,11 @@
 package com.Kunal.Hibernate;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Author {
@@ -14,6 +16,15 @@ public class Author {
 	private String name;
 	private int age;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Book book;
+	
+	public Book getBook() {
+		return book;
+	}
+	public void setBook(Book book) {
+		this.book = book;
+	}
 	public int getId() {
 		return id;
 	}
