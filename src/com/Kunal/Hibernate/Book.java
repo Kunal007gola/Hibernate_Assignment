@@ -1,8 +1,11 @@
 package com.Kunal.Hibernate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,7 +19,16 @@ public class Book {
 	private String name;
 	private float price;
 	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="author_id")
+	private Author author;
 	
+	public Author getAuthor() {
+		return author;
+	}
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
 	public int getBid() {
 		return bid;
 	}
