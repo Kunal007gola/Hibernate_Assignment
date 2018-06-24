@@ -6,6 +6,8 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -23,6 +25,17 @@ public class Author {
 	private String name;
 	private int age;
 	
+
+	@Embedded
+	@ElementCollection
+	private Set<Author_Address> addressList = new HashSet<>();
+	
+	public Set<Author_Address> getAddressList() {
+		return addressList;
+	}
+	public void setAddressList(Set<Author_Address> addressList) {
+		this.addressList = addressList;
+	}
 	@ManyToMany(cascade=CascadeType.ALL)
 	private Set<Book> book=new HashSet<>();
 	

@@ -33,6 +33,27 @@ public class DataAccess {
 		bk2.setPrice((float) 50.00);
 		bk2.setBid(7012);
 		
+		Author_Address autadd=new Author_Address();
+		autadd.setHouseNo(104);
+		autadd.setCity("Old Delhi");
+		autadd.setPinCode(110006);
+		autadd.setState("Delhi");
+		autadd.setStreet("Chawri Bazar");
+		
+		Author_Address autadd1=new Author_Address();
+		autadd1.setHouseNo(653);
+		autadd1.setCity("Chandigarh");
+		autadd1.setPinCode(210037);
+		autadd1.setState("Punjab");
+		autadd1.setStreet("Lodi Road");
+		
+		Author_Address autadd2=new Author_Address();
+		autadd2.setHouseNo(076);
+		autadd2.setCity("New Delhi");
+		autadd2.setPinCode(110052);
+		autadd2.setState("Delhi");
+		autadd2.setStreet("Karol bagh");
+		
 		Author ar=new Author();
 		ar.setAge(47);
 		ar.setName("Zayn");
@@ -46,6 +67,9 @@ public class DataAccess {
 		ar.getBook().add(bk1);
 		ar.getBook().add(bk);
 		ar2.getBook().add(bk2);
+		ar.getAddressList().add(autadd2);
+		ar.getAddressList().add(autadd1);
+		ar2.getAddressList().add(autadd);
 		
 		sass.save(bk);
 		sass.save(bk1);
