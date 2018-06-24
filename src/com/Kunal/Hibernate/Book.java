@@ -16,15 +16,7 @@ public class Book {
 	private String name;
 	private float price;
 	
-	@OneToOne
-	private Author author;
 	
-	public Author getAuthor() {
-		return author;
-	}
-	public void setAuthor(Author author) {
-		this.author = author;
-	}
 	public int getBid() {
 		return bid;
 	}

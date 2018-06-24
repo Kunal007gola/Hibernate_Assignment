@@ -1,10 +1,15 @@
 package com.Kunal.Hibernate;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,13 +21,14 @@ public class Author {
 	private String name;
 	private int age;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	private Book book;
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="author_id")
+	private Set<Book> book=new HashSet<>();
 	
-	public Book getBook() {
+	public Set<Book> getBook() {
 		return book;
 	}
-	public void setBook(Book book) {
+	public void setBook(Set<Book> book) {
 		this.book = book;
 	}
 	public int getId() {

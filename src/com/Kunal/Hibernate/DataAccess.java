@@ -23,15 +23,25 @@ public class DataAccess {
 		bk.setPrice((float) 2000.00);
 		bk.setBid(7010);
 		
+		Book bk1=new Book();
+		bk1.setName("MIB 2");
+		bk1.setPrice((float) 700.00);
+		bk1.setBid(7011);
+		
+		Book bk2=new Book();
+		bk2.setName("Speed");
+		bk2.setPrice((float) 50.00);
+		bk2.setBid(7012);
+		
 		Author ar=new Author();
 		ar.setAge(47);
 		ar.setName("Zayn");
 		ar.setId(101);
-		
-		bk.setAuthor(ar);
-		ar.setBook(bk);
+		ar.getBook().add(bk1);
+		ar.getBook().add(bk2);
+		ar.getBook().add(bk);
 				
-		sass.save(bk);
+		
 		sass.save(ar);
 				
 		
