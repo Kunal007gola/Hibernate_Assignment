@@ -43,14 +43,15 @@ public class DataAccess {
 		ar2.setName("Harry Styles");
 		ar2.setId(102);
 		
-		bk.setAuthor(ar);
-		bk1.setAuthor(ar2);
-		bk2.setAuthor(ar2);
-						
+		ar.getBook().add(bk1);
+		ar.getBook().add(bk);
+		ar2.getBook().add(bk2);
 		
 		sass.save(bk);
 		sass.save(bk1);
 		sass.save(bk2);
+		sass.save(ar2);
+		sass.save(ar);
 		
 		sass.getTransaction().commit();
 		sass.close();

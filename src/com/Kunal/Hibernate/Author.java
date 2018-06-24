@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -18,10 +19,19 @@ public class Author {
 	@Id
 	@Column(name="author_id")
 	private int id;
+
 	private String name;
 	private int age;
 	
+	@ManyToMany(cascade=CascadeType.ALL)
+	private Set<Book> book=new HashSet<>();
 	
+	public Set<Book> getBook() {
+		return book;
+	}
+	public void setBook(Set<Book> book) {
+		this.book = book;
+	}
 	public int getId() {
 		return id;
 	}

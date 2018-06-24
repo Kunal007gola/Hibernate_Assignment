@@ -1,10 +1,14 @@
 package com.Kunal.Hibernate;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -19,14 +23,13 @@ public class Book {
 	private String name;
 	private float price;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="author_id")
-	private Author author;
+	@ManyToMany(cascade=CascadeType.ALL,mappedBy="book")
+	private Set<Author> author=new HashSet<>();
 	
-	public Author getAuthor() {
+	public Set<Author> getAuthor() {
 		return author;
 	}
-	public void setAuthor(Author author) {
+	public void setAuthor(Set<Author> author) {
 		this.author = author;
 	}
 	public int getBid() {
