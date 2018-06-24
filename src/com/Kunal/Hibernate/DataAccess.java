@@ -27,9 +27,11 @@ public class DataAccess {
 		ar.setAge(47);
 		ar.setName("Zayn");
 		ar.setId(101);
+		
+		bk.setAuthor(ar);
 		ar.setBook(bk);
-		
-		
+				
+		sass.save(bk);
 		sass.save(ar);
 				
 		

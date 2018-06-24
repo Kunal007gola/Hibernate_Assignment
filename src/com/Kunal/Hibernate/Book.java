@@ -3,6 +3,7 @@ package com.Kunal.Hibernate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Book {
@@ -15,7 +16,15 @@ public class Book {
 	private String name;
 	private float price;
 	
+	@OneToOne
+	private Author author;
 	
+	public Author getAuthor() {
+		return author;
+	}
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
 	public int getBid() {
 		return bid;
 	}
